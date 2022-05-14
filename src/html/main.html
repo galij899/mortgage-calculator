@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <py-env>
+      - pandas
+      - matplotlib
+      - paths:
+        - /src/python/annuity.py
+    </py-env>
+  </head>
+    <body>
+      <div>Annuity calculator</div>
+      <div id="plot"></div>
+      <div id="table"></div>
+      <py-script output="plot">
+        from annuity import Annuity
+        
+        a = Annuity(1000000, 100, 0.09)
+        table = a.payment_table()
+        fig = a.plot_loan_body_change()
+
+        pyscript.write("plot", fig)
+        pyscript.write("table", table)
+      </py-script>
+    </body>
+</html>
