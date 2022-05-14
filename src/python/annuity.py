@@ -55,7 +55,8 @@ class Annuity:
         table = self.payment_table()
 
         fig, ax = plt.subplots()
-        ax.plot(table.index.strftime("%Y-%m"), table[BODY].values)
+        ax.plot(table.index.strftime('%Y-%m'), table[BODY].values)
         plt.xticks(rotation=90)
 
         return fig
+
