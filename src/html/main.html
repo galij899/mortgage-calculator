@@ -18,6 +18,10 @@
       <nav class="navbar bg-light">
         <div class="container-fluid">
           <span class="navbar-brand mb-0 h1">Annuity calculator</span>
+          <a class="navbar-brand" href="https://github.com/galij899">
+            <img src="/src/icons/github-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            My GitHub
+          </a>
         </div>
       </nav>
       <div class="container-fluid">
@@ -40,6 +44,10 @@
                   <input type="text" class="form-control" id="mortgageInterest">
                   <div id="mortgageInterestHelp" class="form-text">Annual interest rate</div>
                 </div>
+                <div class="mb-3">
+                  <label for="startMonth" class="form-label">Starting month</label>
+                  <input type="month" class="form-control" id="startMonth">
+                </div>
                 <button id="calculate" type="button" class="btn btn-primary" pys-onClick="calculate">Calculate</button>
               </form>
             </div>
@@ -56,12 +64,14 @@
         mortgage_amount = Element("mortgageAmount")
         mortgage_period = Element("mortgagePeriod")
         mortgage_interest = Element("mortgageInterest")
+        start_month = Element("startMonth")
 
         def get_values():
           return (
             int(mortgage_amount.value), 
             int(mortgage_period.value), 
-            float(mortgage_interest.value)
+            float(mortgage_interest.value),
+            start_month.value
           )
 
         def calculate(*args, **kwargs):
